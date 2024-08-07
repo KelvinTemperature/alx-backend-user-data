@@ -23,7 +23,7 @@ class BasicAuth(Auth):
             if field_match is not None:
                 return field_match.group('token')
         return None
-    
+
     def decode_base64_authorization_header(
             self,
             base64_authorization_header: str,
@@ -39,7 +39,7 @@ class BasicAuth(Auth):
                 return res.decode('utf-8')
             except (binascii.Error, UnicodeDecodeError):
                 return None
-            
+
     def extract_user_credentials(
             self,
             decoded_base64_authorization_header: str,
@@ -58,7 +58,7 @@ class BasicAuth(Auth):
                 password = field_match.group('password')
                 return user, password
         return None, None
-    
+
     def user_object_from_credentials(
             self,
             user_email: str,
@@ -75,7 +75,7 @@ class BasicAuth(Auth):
             if users[0].is_valid_password(user_pwd):
                 return users[0]
         return None
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         """Retrieves the user from a request.
         """
@@ -84,4 +84,3 @@ class BasicAuth(Auth):
         auth_token = self.decode_base64_authorization_header(b64_auth_token)
         email, password = self.extract_user_credentials(auth_token)
         return self.user_object_from_credentials(email, password)
-    

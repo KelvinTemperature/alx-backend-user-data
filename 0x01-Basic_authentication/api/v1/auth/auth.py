@@ -28,9 +28,9 @@ class Auth:
                 else:
                     pattern = '{}/*'.format(exclusion_path)
                 if re.match(pattern, path):
-                    return False        
+                    return False
         return True
-    
+
     def authorization_header(self, request=None) -> str:
         """
         Args:
@@ -42,9 +42,8 @@ class Auth:
         if request is not None:
             return request.headers.get('Authorization', None)
         return None
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         """Gets the current user
         """
         return None
-    
