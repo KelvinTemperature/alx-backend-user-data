@@ -7,7 +7,7 @@ from flask import request
 from typing import List, TypeVar
 
 
-class Auth():
+class Auth:
     """Class to handle authentication
     """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
@@ -48,9 +48,9 @@ class Auth():
         """Gets the current user
         """
         return None
-    
+
     def session_cookie(self, request=None) -> str:
-        """returns a cookie value from a request"""    
+        """returns a cookie value from a request"""
         if request is not None:
             cookie_name = os.getenv('SESSION_NAME')
             return request.cookie.get(cookie_name)
