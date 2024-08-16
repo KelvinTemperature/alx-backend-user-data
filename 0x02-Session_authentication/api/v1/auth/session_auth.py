@@ -29,7 +29,7 @@ class SessionAuth(Auth):
             Returns user_id by session_id
         """
         if type(session_id) is str:
-            return self.user_id_by_session_id.get(session_id)       
+            return self.user_id_by_session_id.get(session_id)
 
     def current_user(self, request=None) -> User:
         """
@@ -47,4 +47,4 @@ class SessionAuth(Auth):
             return False
         if session_id in self.user_id_by_session_id:
             del self.user_id_by_session_id[session_id]
-        return True        
+        return True

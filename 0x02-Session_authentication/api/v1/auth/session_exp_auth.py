@@ -31,7 +31,7 @@ class SessionExpAuth(SessionAuth):
             'created_at': datetime.now(),
         }
         return session_id
-    
+
     def user_id_for_session_id(self, session_id=None) -> str:
         """Retrieves the user id of the user associated with
         a given session id.
@@ -48,4 +48,3 @@ class SessionExpAuth(SessionAuth):
             if exp_time < cur_time:
                 return None
             return session_dict['user_id']
-    
