@@ -3,7 +3,7 @@
     Session Authentication Module
 """
 import uuid
-from auth import Auth
+from .auth import Auth
 from models.user import User
 
 
